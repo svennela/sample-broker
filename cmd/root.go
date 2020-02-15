@@ -10,7 +10,7 @@ import (
 var cfgFile string
 
 var rootCmd = &cobra.Command{
-	Use:   "broker-sample",
+	Use:   "sample-broker",
 	Short: "Service Broker is an OSB compatible service broker",
 	Long:  `An OSB compatible service broker for GCP/AZURE/AWS.`,
 	Run: func(cmd *cobra.Command, args []string) {

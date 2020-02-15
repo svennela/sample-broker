@@ -48,4 +48,4 @@ build:
 
 serve:
 		@echo "  >  starting serve"
-		$(GOBIN)/$(PROJECTNAME)
+		$(GOBIN)/$(PROJECTNAME) serve

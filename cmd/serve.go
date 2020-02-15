@@ -45,6 +45,7 @@ func serve() {
 		Username: viper.GetString(apiUserProp),
 		Password: viper.GetString(apiPasswordProp),
 	}
+  logger.Info("credentials catalog", lager.Data{"credentials": credentials})
 
 	if cfCompatibilityToggle.IsActive() {
 		logger.Info("Enabling Cloud Foundry service sharing")

@@ -6,6 +6,7 @@ import (
   "log"
   "github.com/spf13/cobra"
   "github.com/spf13/viper"
+	"github.com/svennela/sample-broker/utils"
 )
 var cfgFile string
 
@@ -24,8 +25,11 @@ var rootCmd = &cobra.Command{
 
 func init() {
   cobra.OnInitialize(initConfig)
+	fmt.Println("config file",cfgFile)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "Configuration file to be read")
-
+	viper.SetEnvPrefix(utils.EnvironmentVarPrefix)
+	viper.SetEnvKeyReplacer(utils.PropertyToEnvReplacer)
+	viper.AutomaticEnv()
 
 }
 
@@ -33,6 +37,8 @@ func initConfig() {
   if cfgFile == "" {
   		return
   	}
+
+		fmt.Println("setting config file",cfgFile)
 
   	viper.SetConfigFile(cfgFile)
 

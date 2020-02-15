@@ -1,0 +1,10 @@
+db:
+  host: localhost
+  name: servicebroker
+  password: password
+  port: "3306"
+  user: root
+api:
+  user: user
+  password: pass
+  port: 8000

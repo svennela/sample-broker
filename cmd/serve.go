@@ -4,6 +4,8 @@ import (
 	// "context"
 	// "database/sql"
 	// "net/http"
+  "fmt"
+  "github.com/svennela/sample-broker/brokerapi/brokers"
   "github.com/svennela/sample-broker/utils"
   "github.com/svennela/sample-broker/pkg/toggles"
   "github.com/pivotal-cf/brokerapi"
@@ -40,6 +42,18 @@ func init() {
 func serve() {
   logger := utils.NewLogger("sample-broker")
   logger.Info(" Server Function" )
+
+// init broker
+	cfg, err := brokers.NewBrokerConfigFromEnv()
+	if err != nil {
+		logger.Fatal("Error initializing service broker config: %s", err)
+	}
+  fmt.Println("cfg", cfg)
+	// var serviceBroker brokerapi.ServiceBroker
+	// serviceBroker, err = brokers.New(cfg, logger)
+	// if err != nil {
+	// 	logger.Fatal("Error initializing service broker: %s", err)
+	// }
 
   credentials := brokerapi.BrokerCredentials{
 		Username: viper.GetString(apiUserProp),

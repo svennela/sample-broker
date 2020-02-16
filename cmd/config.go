@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"fmt"
+
 	//"log"
 	"github.com/svennela/sample-broker/utils"
 	"github.com/spf13/cobra"
@@ -64,7 +64,7 @@ out.toml:
 `,
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			
+
 			return viper.WriteConfigAs(args[0])
 		},
 	})

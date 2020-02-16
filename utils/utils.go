@@ -7,7 +7,6 @@ import (
 	"os"
 	"regexp"
 	"strings"
-
 	"code.cloudfoundry.org/lager"
 	"github.com/pivotal-cf/brokerapi"
 	"github.com/spf13/viper"
